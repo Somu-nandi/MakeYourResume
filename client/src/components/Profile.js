@@ -40,6 +40,12 @@ class Profile extends Component {
 
   continue = (e) => {
     e.preventDefault();
+    // Basic validation
+    const { firstname, lastname, email } = this.props.values;
+    if (!firstname.trim() || !lastname.trim() || !email.trim()) {
+      this.setState({ open: true });
+      return;
+    }
     this.props.nextStep();
   };
 
