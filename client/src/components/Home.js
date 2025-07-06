@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import NavBar from "./NavBar";
-import { Box, Button, Divider, Paper } from "@mui/material";
+import { Box, Button, Divider, Paper, Typography, Container } from "@mui/material";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import carousel1 from "../static/carousel1.png";
@@ -32,6 +32,18 @@ const Home = () => {
   return (
     <div>
       <NavBar></NavBar>
+
+      {/* Welcome Section */}
+      <Container maxWidth="lg" style={{ marginTop: "2rem", marginBottom: "2rem" }}>
+        <Typography variant="h3" component="h1" align="center" gutterBottom>
+          Professional Resume Builder
+        </Typography>
+        <Typography variant="h6" component="p" align="center" color="textSecondary" paragraph>
+          Create stunning, professional resumes in minutes with our easy-to-use builder.
+          Choose from multiple templates, customize your content, and download as PDF.
+        </Typography>
+      </Container>
+
       <Box>
         <Carousel
           responsive={responsive}
