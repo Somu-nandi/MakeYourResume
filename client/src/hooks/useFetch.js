@@ -6,10 +6,13 @@ const useFetch = (url) => {
   const [error, setError] = useState("");
 
   const handleGoogle = async (response) => {
+    console.log("handleGoogle called with:", response);
+    console.log("URL:", url);
     setLoading(true);
     setError(""); // Clear previous errors
 
     try {
+      console.log("Making fetch request to:", url);
       const res = await fetch(url, {
         method: "POST",
         headers: {
@@ -18,10 +21,13 @@ const useFetch = (url) => {
         body: JSON.stringify({ credential: response.credential }),
       });
 
+      console.log("Response status:", res.status);
       const data = await res.json();
+      console.log("Response data:", data);
       setLoading(false);
 
       if (res.ok && data?.user) {
+        console.log("Authentication successful, saving user");
         saveUser(data?.user);
         window.location.replace("/");
       } else {

@@ -61,7 +61,33 @@ const SignUp = () => {
         {loading ? (
           <LoadingSpinner message="Creating your account..." />
         ) : (
-          <div id="signUpDiv" data-text="signup_with"></div>
+          <div>
+            <div id="signUpDiv" data-text="signup_with"></div>
+            <br />
+            <button
+              onClick={() => {
+                // Temporary bypass for testing
+                const testUser = {
+                  firstName: "Demo",
+                  lastName: "User",
+                  email: "demo@makeyourresume.com",
+                  picture: "https://via.placeholder.com/150"
+                };
+                localStorage.setItem("user", JSON.stringify(testUser));
+                window.location.replace("/");
+              }}
+              style={{
+                padding: "10px 20px",
+                backgroundColor: "#ff5722",
+                color: "white",
+                border: "none",
+                borderRadius: "5px",
+                cursor: "pointer"
+              }}
+            >
+              🚀 Demo Signup (Skip OAuth)
+            </button>
+          </div>
         )}
       </main>
       <footer></footer>

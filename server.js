@@ -95,6 +95,7 @@ app.post("/verifyToken", (req, res) => {
 });
 
 app.post("/auth/signup", async (req, res) => {
+  console.log("Signup endpoint hit with:", req.body);
   try {
     if (req.body.credential) {
       const verificationResponse = await verifyGoogleToken(req.body.credential);
@@ -137,6 +138,7 @@ app.post("/auth/signup", async (req, res) => {
 });
 
 app.post("/auth/login", async (req, res) => {
+  console.log("Login endpoint hit with:", req.body);
   try {
     if (req.body.credential) {
       const verificationResponse = await verifyGoogleToken(req.body.credential);
