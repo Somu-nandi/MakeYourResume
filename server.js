@@ -66,7 +66,7 @@ const verifyGoogleToken = async (token) => {
 
 app.post("/verifyToken", (req, res) => {
   const token = req.body.token;
-  jwt.verify(token, process.env.GOOGLE_CLIENT_SECRET, (err, decodedToken) => {
+  jwt.verify(token, process.env.JWT_SECRET || process.env.GOOGLE_CLIENT_SECRET, (err, decodedToken) => {
     if (
       err &&
       (err.name === "TokenExpiredError" || err.name === "JsonWebTokenError")
@@ -94,7 +94,7 @@ app.post("/verifyToken", (req, res) => {
   });
 });
 
-app.post("/signup", async (req, res) => {
+app.post("/auth/signup", async (req, res) => {
   try {
     if (req.body.credential) {
       const verificationResponse = await verifyGoogleToken(req.body.credential);
@@ -113,7 +113,7 @@ app.post("/signup", async (req, res) => {
         email: profile?.email,
         token: jwt.sign(
           { email: profile?.email },
-          process.env.GOOGLE_CLIENT_SECRET,
+          process.env.JWT_SECRET || process.env.GOOGLE_CLIENT_SECRET,
           {
             expiresIn: "1d",
           }
@@ -136,7 +136,7 @@ app.post("/signup", async (req, res) => {
   }
 });
 
-app.post("/login", async (req, res) => {
+app.post("/auth/login", async (req, res) => {
   try {
     if (req.body.credential) {
       const verificationResponse = await verifyGoogleToken(req.body.credential);
@@ -168,7 +168,7 @@ app.post("/login", async (req, res) => {
                   email: profile?.email,
                   token: jwt.sign(
                     { email: profile?.email },
-                    process.env.GOOGLE_CLIENT_SECRET,
+                    process.env.JWT_SECRET || process.env.GOOGLE_CLIENT_SECRET,
                     {
                       expiresIn: "1d",
                     }
