@@ -14,7 +14,7 @@ export class Resume extends Component {
       ...this.props.user,
     };
 
-    axios.post("/get-resume", data).then((res) => {
+    axios.post("http://localhost:4000/get-resume", data).then((res) => {
       const resume = { step: 1, ...res.data };
 
       this.setState((prevState) => ({ ...resume }));
@@ -31,6 +31,7 @@ export class Resume extends Component {
     website: "",
     github: "",
     linkedin: "",
+    twitter: "",
     facebook: "",
     instagram: "",
 
@@ -106,7 +107,7 @@ export class Resume extends Component {
       resume: this.state,
     };
     const promise = axios
-      .post("/save", data)
+      .post("http://localhost:4000/save", data)
       .then((res) => res)
       .catch((err) => {
         console.log(err);

@@ -228,6 +228,11 @@ app.post("/get-resume", (req, res) => {
   DB.collection("users")
     .findOne({ email: email })
     .then((userDoc) => {
+      if (!userDoc) {
+        // User not found, return empty resume
+        res.send({});
+        return;
+      }
       const USERID = userDoc._id.toString();
       DB.collection("resume")
         .findOne({ userid: USERID })
@@ -236,8 +241,18 @@ app.post("/get-resume", (req, res) => {
             delete resumeDoc._id;
             delete resumeDoc.userid;
             res.send(resumeDoc);
+          } else {
+            res.send({});
           }
+        })
+        .catch((err) => {
+          console.error("Error fetching resume:", err);
+          res.send({});
         });
+    })
+    .catch((err) => {
+      console.error("Error fetching user:", err);
+      res.send({});
     });
 });
 

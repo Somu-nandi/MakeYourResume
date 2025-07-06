@@ -98,20 +98,18 @@ class Experience extends Component {
         </Card>
         <CardContent>
           <div className={classes.margin}>
-            <Grid container spacing={2} alignItems="center" lg={12}>
+            <Grid container spacing={2} alignItems="center">
               <Grid
                 item
                 xs={12}
                 lg={4}
-                alignItems="flex-end"
-                alignContent="flex-end"
               >
                 <h5>
                   <CheckCircleIcon />
                   <span className="pl-3">Experience 1</span>
                 </h5>
               </Grid>
-              <Grid item xs={0} lg={8} />
+              <Grid item xs={12} lg={8} />
 
               <Grid item md={4} sm={12} xs={12} lg={4}>
                 <TextField
@@ -195,20 +193,18 @@ class Experience extends Component {
             <br />
             <Divider />
             <br />
-            <Grid container spacing={2} alignItems="flex-start" lg={12}>
+            <Grid container spacing={2} alignItems="flex-start">
               <Grid
                 item
                 xs={12}
                 lg={4}
-                alignItems="flex-end"
-                alignContent="flex-end"
               >
                 <h5>
                   <CheckCircleIcon />
                   <span className="pl-3">Experience 2</span>
                 </h5>
               </Grid>
-              <Grid item xs={0} lg={8} />
+              <Grid item xs={12} lg={8} />
               <br />
               <Grid item md={4} sm={12} xs={12} lg={4}>
                 <TextField
@@ -275,7 +271,7 @@ class Experience extends Component {
                   label="Description"
                   variant="outlined"
                   style={{width: '97%'}}
-                  rows={3}
+                  minRows={3}
                   name="experienceDescription2"
                   required
                   value={values.experienceDescription2}
