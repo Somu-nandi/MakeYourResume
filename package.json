@@ -1,5 +1,5 @@
 {
-  "name": "professional-resume-builder",
+  "name": "makeyourresume",
   "version": "1.0.0",
   "description": "Modern Resume Builder Application with React frontend and Node.js backend",
   "main": "server.js",

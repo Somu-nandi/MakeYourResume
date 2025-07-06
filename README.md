@@ -1,4 +1,4 @@
-# Professional Resume Builder
+# MakeYourResume
 
 ![Made-With-React](https://img.shields.io/badge/Made_with-React-informational?style=for-the-badge&logo=react) ![Made-With-NodeJS](https://img.shields.io/badge/Made_with-NodeJS-informational?style=for-the-badge&logo=javascript) ![Made-With-Material_UI](https://img.shields.io/badge/Made_with-Material_UI-informational?style=for-the-badge&logo=material-ui)
 
@@ -35,7 +35,7 @@ Before running this application, make sure you have the following installed:
 1. **Clone the repository**
    ```bash
    git clone <your-repository-url>
-   cd resume-builder
+   cd MakeYourResume
    ```
 
 2. **Install server dependencies**
@@ -82,7 +82,7 @@ Before running this application, make sure you have the following installed:
 ## 🏗️ Project Structure
 
 ```
-resume-builder/
+MakeYourResume/
 ├── client/                 # React frontend
 │   ├── public/
 │   ├── src/

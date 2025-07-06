@@ -1,6 +1,6 @@
-# Setup Guide for Professional Resume Builder
+# Setup Guide for MakeYourResume
 
-This guide will help you set up and run the Professional Resume Builder application on your local machine.
+This guide will help you set up and run the MakeYourResume application on your local machine.
 
 ## Prerequisites
 
@@ -52,7 +52,7 @@ Before you begin, ensure you have the following installed:
 1. **Clone the repository:**
    ```bash
    git clone <your-repo-url>
-   cd professional-resume-builder
+   cd MakeYourResume
    ```
 
 2. **Install server dependencies:**
