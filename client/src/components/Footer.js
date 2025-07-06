@@ -4,25 +4,19 @@ import "./Footer.css";
 const Footer = () => {
   return (
     <div>
-      <p class="footer-heart">
+      <p className="footer-heart">
         Made with{" "}
-        <g-emoji
-          class="g-emoji"
-          alias="heart"
-          fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2764.png"
+        <span
+          className="g-emoji"
+          role="img"
+          aria-label="heart"
         >
-          <img
-            class="emoji"
-            alt="heart"
-            height="20"
-            width="20"
-            src="https://github.githubassets.com/images/icons/emoji/unicode/2764.png"
-          />
-        </g-emoji>{" "}
+          ❤️
+        </span>{" "}
         by{" "}
-        <a href="#" target="_blank" rel="noreferrer">
+        <span style={{ color: '#3a14f7', fontWeight: 'bold' }}>
           Soumya
-        </a>
+        </span>
       </p>
     </div>
   );

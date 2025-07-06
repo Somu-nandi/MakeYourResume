@@ -53,16 +53,16 @@ const Home = () => {
           autoPlaySpeed={3000}
         >
           <Paper>
-            <img src={carousel1} height={400} width={400}></img>
+            <img src={carousel1} height={400} width={400} alt="Resume template preview 1" />
           </Paper>
           <Paper>
-            <img src={carousel2} height={400} width={400}></img>
+            <img src={carousel2} height={400} width={400} alt="Resume template preview 2" />
           </Paper>
           <Paper>
-            <img src={carousel3} height={400} width={400}></img>
+            <img src={carousel3} height={400} width={400} alt="Resume template preview 3" />
           </Paper>
           <Paper>
-            <img src={carousel4} height={400} width={400}></img>
+            <img src={carousel4} height={400} width={400} alt="Resume template preview 4" />
           </Paper>
         </Carousel>
       </Box>

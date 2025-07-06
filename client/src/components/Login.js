@@ -13,21 +13,22 @@ const Login = () => {
 
   useEffect(() => {
     /* global google */
-    if (window.google) {
+    if (window.google && !loading) {
       google.accounts.id.initialize({
         client_id: process.env.REACT_APP_GOOGLE_CLIENT_ID,
         callback: handleGoogle,
       });
 
-      google.accounts.id.renderButton(document.getElementById("loginDiv"), {
-        theme: "filled_black",
-        text: "signin_with",
-        shape: "pill",
-      });
-
-      google.accounts.id.prompt();
+      const loginDiv = document.getElementById("loginDiv");
+      if (loginDiv && !loginDiv.hasChildNodes()) {
+        google.accounts.id.renderButton(loginDiv, {
+          theme: "filled_black",
+          text: "signin_with",
+          shape: "pill",
+        });
+      }
     }
-  }, [handleGoogle]);
+  }, [handleGoogle, loading]);
 
   return (
     <div>

@@ -34,13 +34,13 @@ export const validateName = (name) => {
 
 export const validateLinkedIn = (url) => {
   if (!url) return true; // Optional field
-  const linkedinRegex = /^https?:\/\/(www\.)?linkedin\.com\/in\/[a-zA-Z0-9\-]+\/?$/;
+  const linkedinRegex = /^https?:\/\/(www\.)?linkedin\.com\/in\/[a-zA-Z0-9-]+\/?$/;
   return linkedinRegex.test(url);
 };
 
 export const validateGitHub = (url) => {
   if (!url) return true; // Optional field
-  const githubRegex = /^https?:\/\/(www\.)?github\.com\/[a-zA-Z0-9\-]+\/?$/;
+  const githubRegex = /^https?:\/\/(www\.)?github\.com\/[a-zA-Z0-9-]+\/?$/;
   return githubRegex.test(url);
 };
 

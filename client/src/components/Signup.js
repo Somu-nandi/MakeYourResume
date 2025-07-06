@@ -14,23 +14,22 @@ const SignUp = () => {
 
   useEffect(() => {
     /* global google */
-    if (window.google) {
+    if (window.google && !loading) {
       google.accounts.id.initialize({
         client_id: process.env.REACT_APP_GOOGLE_CLIENT_ID,
         callback: handleGoogle,
       });
 
-      google.accounts.id.renderButton(document.getElementById("signUpDiv"), {
-        // type: "standard",
-        theme: "filled_black",
-        // size: "small",
-        text: "continue_with",
-        shape: "pill",
-      });
-
-      google.accounts.id.prompt()
+      const signUpDiv = document.getElementById("signUpDiv");
+      if (signUpDiv && !signUpDiv.hasChildNodes()) {
+        google.accounts.id.renderButton(signUpDiv, {
+          theme: "filled_black",
+          text: "continue_with",
+          shape: "pill",
+        });
+      }
     }
-  }, [handleGoogle]);
+  }, [handleGoogle, loading]);
 
   return (
     <>
