@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { ThemeProvider } from '@material-ui/core/styles';
+import { CssBaseline } from '@material-ui/core';
+import customTheme from './theme/customTheme';
 
 import "./App.css";
 import Resume from "./components/Resume";
@@ -52,30 +55,33 @@ export function App() {
   }, []);
 
   return (
-    <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route
-            exact
-            path="/"
-            element={user?.email ? <Resume user={user} /> : <Home />}
-          ></Route>
-          <Route
-            exact
-            path="/signup"
-            element={user?.email ? <Resume user={user} /> : <Signup />}
-          ></Route>
-          <Route
-            exact
-            path="/login"
-            element={user?.email ? <Resume user={user} /> : <Login />}
-          ></Route>
-        </Routes>
-      </BrowserRouter>
-      <br></br>
-      <br></br>
-      <Footer></Footer>
-    </div>
+    <ThemeProvider theme={customTheme}>
+      <CssBaseline />
+      <div className="App">
+        <BrowserRouter>
+          <Routes>
+            <Route
+              exact
+              path="/"
+              element={user?.email ? <Resume user={user} /> : <Home />}
+            ></Route>
+            <Route
+              exact
+              path="/signup"
+              element={user?.email ? <Resume user={user} /> : <Signup />}
+            ></Route>
+            <Route
+              exact
+              path="/login"
+              element={user?.email ? <Resume user={user} /> : <Login />}
+            ></Route>
+          </Routes>
+        </BrowserRouter>
+        <br></br>
+        <br></br>
+        <Footer></Footer>
+      </div>
+    </ThemeProvider>
   );
 }
 
