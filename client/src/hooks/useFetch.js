@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { saveUser } from "../utils/localStorage";
 
 const useFetch = (url) => {
   const [loading, setLoading] = useState(false);
@@ -21,7 +22,7 @@ const useFetch = (url) => {
       setLoading(false);
 
       if (res.ok && data?.user) {
-        localStorage.setItem("user", JSON.stringify(data?.user));
+        saveUser(data?.user);
         window.location.replace("/");
       } else {
         throw new Error(data?.message || "Authentication failed. Please try again.");
