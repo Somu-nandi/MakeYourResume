@@ -103,14 +103,51 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+## 🏗️ Development Features
+
+### Custom Hooks
+- **useFormValidation**: Comprehensive form validation with real-time error handling
+- **useAutoSave**: Automatic draft saving with configurable intervals
+- **useFetch**: Enhanced authentication handling with improved error management
+
+### Components
+- **ErrorBoundary**: Graceful error handling with retry mechanisms
+- **LoadingSpinner**: Reusable loading component with customizable messages
+- **Custom Theme**: Professional Material-UI theme with consistent styling
+
+### Utilities
+- **Validation**: Email, phone, URL, and social media profile validators
+- **LocalStorage**: Secure data persistence with error handling
+- **Constants**: Centralized configuration and error messages
+
+### Code Quality
+- Modular component architecture
+- Comprehensive error handling
+- Type-safe validation
+- Responsive design patterns
+- Performance optimizations
+
+## 🔧 Development Workflow
+
+This project follows modern React development practices:
+
+1. **Component-Based Architecture**: Reusable, maintainable components
+2. **Custom Hooks**: Business logic separation and reusability
+3. **Error Boundaries**: Graceful error handling and recovery
+4. **Auto-Save**: User data protection with automatic drafts
+5. **Validation**: Real-time form validation with user feedback
+6. **Theme System**: Consistent UI/UX across the application
+
 ## 🙏 Acknowledgments
 
 - Material-UI for the beautiful component library
 - React community for excellent documentation
 - Google for OAuth integration
+- MongoDB for reliable data storage
 
 ---
 
 <div align="center">
-  <p>Built with ❤️ using React and Node.js</p>
+  <p>Built with ❤️ using React and Node.js by Soumya</p>
+  <p>© 2025 MakeYourResume - Professional Resume Builder</p>
 </div>
