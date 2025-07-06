@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import useFetch from "../hooks/useFetch";
 import { Link } from "react-router-dom";
 import NavBar from "./NavBar";
+import LoadingSpinner from "./LoadingSpinner";
 import { Button } from "@mui/material";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
@@ -59,7 +60,7 @@ const SignUp = () => {
       >
         {error && <p style={{ color: "red" }}>{error}</p>}
         {loading ? (
-          <div>Loading....</div>
+          <LoadingSpinner message="Creating your account..." />
         ) : (
           <div id="signUpDiv" data-text="signup_with"></div>
         )}
