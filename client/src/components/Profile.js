@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { TextField, Button, Container } from "@material-ui/core";
+import { validateEmail, validateName, validatePhone, getValidationMessage } from "../utils/validation";
 import { Card, CardHeader, CardContent } from "@material-ui/core";
 import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 import NavigateBeforeIcon from "@material-ui/icons/NavigateBefore";
@@ -36,17 +37,37 @@ const styles = (theme) => ({
 class Profile extends Component {
   state = {
     open: false,
+    errors: {},
+  };
+
+  validateForm = () => {
+    const { firstname, lastname, email, phone } = this.props.values;
+    const errors = {};
+
+    if (!validateName(firstname)) {
+      errors.firstname = getValidationMessage('firstname', firstname);
+    }
+    if (!validateName(lastname)) {
+      errors.lastname = getValidationMessage('lastname', lastname);
+    }
+    if (!validateEmail(email)) {
+      errors.email = getValidationMessage('email', email);
+    }
+    if (phone && !validatePhone(phone)) {
+      errors.phone = getValidationMessage('phone', phone);
+    }
+
+    this.setState({ errors });
+    return Object.keys(errors).length === 0;
   };
 
   continue = (e) => {
     e.preventDefault();
-    // Basic validation
-    const { firstname, lastname, email } = this.props.values;
-    if (!firstname.trim() || !lastname.trim() || !email.trim()) {
+    if (this.validateForm()) {
+      this.props.nextStep();
+    } else {
       this.setState({ open: true });
-      return;
     }
-    this.props.nextStep();
   };
 
   save = (e) => {
